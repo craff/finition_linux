@@ -1,0 +1,12 @@
+# /etc/systemd/system/run_scripts.service 
+[Unit]
+Description=My Service
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+ExecStart=/usr/bin/python3 /usr/local/bin/run_scripts.py
+
+[Install]
+WantedBy=multi-user.target

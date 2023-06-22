@@ -1,0 +1,6 @@
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+http_proxy=http://127.0.0.1:3128/
+https_proxy=http://127.0.0.1:3128/
+wss_proxy=http://127.0.0.1:3128/
+ftp_proxy=http://127.0.0.1:3128/
+no_proxy="10.*,{ENT_HOST}"

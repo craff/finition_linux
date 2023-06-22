@@ -1,0 +1,36 @@
+#!/bin/bash
+
+PORT=3128
+PROXY={PROXY}
+PROXY_PORT={PROXY_PORT}
+DOMAIN={DOMAIN}
+CONF=$(mktemp)-$PAM_USER.conf
+
+echo get cntlm auth token
+
+echo $PAM_AUTHTOK | /usr/local/sbin/cntlm -H -v -c /dev/null -d $DOMAIN -u $PAM_USER -a NTLMv2 | tail -3 > $CONF
+echo Proxy $PROXY:$PROXY_PORT >> $CONF
+echo Listen		$PORT >> $CONF
+curl {NTML_CONF_URL} >> $CONF
+
+echo start cntlm proxy
+
+/usr/local/sbin/cntlm -f -c $CONF -v -u $PAM_USER -d $DOMAIN -a NTLMv2 > /var/log/cntlm/cntlm-$PAM_USER-$PORT.log 2>&1 &
+
+CNTLM_PID=$!
+
+sleep 1
+
+if ! kill -0 $CNTLM_PID > /dev/null ; then
+    exit 1
+fi
+
+echo $CNTLM_PID > /tmp/cntlm-$PAM_USER.pid
+
+rm $CONF
+
+exit 0
+
+
+
+

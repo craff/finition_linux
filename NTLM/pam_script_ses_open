@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# install /etc/skel files
+
+export HOME=$(getent passwd $PAM_USER | cut -d: -f6)
+
+env > /tmp/test.txt
+echo $HOME >> /tmp/test.txt
+
+cp /etc/skel/.profile $HOME/.profile
+
+while read f
+do
+    if [ ! -e "$HOME/$f" ]; then
+       cp /etc/skel/$f $HOME/
+    fi
+done <<< $(ls -a /etc/skel)
+
+
+
+
+

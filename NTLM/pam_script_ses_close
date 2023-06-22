@@ -1,0 +1,8 @@
+#!/bin/bash
+
+PIDFILE=/tmp/cntlm-$PAM_USER.pid 
+if [ -f $PIDFILE ]; then
+   CNTLM_PID=$(cat $PIDFILE)   
+   kill $CNTLM_PID
+   rm $PIDFILE
+fi

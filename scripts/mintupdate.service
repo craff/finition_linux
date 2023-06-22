@@ -1,0 +1,11 @@
+# /etc/systemd/system/minupdate.service
+[Unit]
+Description=Mint update
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/bash -e /usr/local/bin/mint_update.sh
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,10 @@
+[Unit]
+Description=Mint update
+
+[Timer]
+OnCalendar=*-*-* *:00/15:55
+OnBootSec=600
+Persistent=true
+
+[Install]
+WantedBy=timers.target
