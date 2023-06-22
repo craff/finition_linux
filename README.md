@@ -23,6 +23,12 @@ Les principaux intérêts de ce script:
 
 - pleins d'autres choses à voir dans le fichier finition.sh
 
+Documentation
+-------------
+
+- Ce fichier et les commentaires dans `finition.sh`,
+  `scripts/run_scripts.sql` et `scripts/run_scripts.py`
+
 Pour utiliser ce script, il faut:
 ---------------------------------
 
