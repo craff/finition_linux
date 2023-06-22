@@ -32,7 +32,7 @@ Pour utiliser ce script, il faut:
   les plus récents
 
 - taper `make` pour ramener les .deb qui ne sont pas dans les dépôts et notre
-  cntlm patché.
+  cntlm patché. Ce cntlm ce trouve sur `https://github.com/craff/cntlm`
 
 - installer le poste avec linux mint 20.3 (à tester avec une version
   plus récente et à adapter pour debian)
