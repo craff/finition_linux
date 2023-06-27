@@ -18,7 +18,6 @@ debs:
 .PHONY: clean
 clean:
 	cd cntlm
-	./configure
 	make clean
 
 .PHONY: distclean
